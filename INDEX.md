@@ -1,9 +1,10 @@
 # Prompts index
 
-Last synced 2026-05-10. 36 prompts.
+Last synced 2026-05-10. 37 prompts.
 
 ## planning
 
+- [`idea-validate`](planning/idea-validate.md) — Idea validation orchestrator (GO/NO-GO with v1 scope)
 - [`plan-critique-1x`](planning/plan-critique-1x.md) — Adaptive plan critique (1 cycle)
 - [`plan-critique-3x`](planning/plan-critique-3x.md) — Adaptive plan critique (3 cycles)
 - [`plan-critique-5x`](planning/plan-critique-5x.md) — Adaptive plan critique (5 cycles)
