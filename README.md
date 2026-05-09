@@ -6,7 +6,8 @@ Prompts I use when building software with coding agents (Claude Code, Codex, Cur
 
 Before code or specs exist, figure out if it's worth building.
 
-- [`ux/jtbd.md`](ux/jtbd.md) — name the actual job a user is hiring this for. *Most plans skip "is anyone going to want this?"*
+- [`planning/idea-validate.md`](planning/idea-validate.md) — **adaptive orchestrator**: classifies the idea (new product / new feature / internal tool / research), applies JTBD + requirements-interview + competitor scan + risk surface + resource fit as relevant, runs a verifier loop, and produces a GO / NO-GO / GO-WITH-MODIFICATIONS verdict with v1 scope or kill criteria. *Most ideas die in the gap between "sounds plausible" and "anyone will actually use it".*
+- [`ux/jtbd.md`](ux/jtbd.md) — name the actual job a user is hiring this for. *Most plans skip "is anyone going to want this?"* (The orchestrator runs this when relevant; fire it standalone for a deeper single-lens pass.)
 - [`planning/requirements-interview.md`](planning/requirements-interview.md) — clarify ambiguous asks one question at a time. *Vague specs produce vague code.*
 - [`marketing/distribution-strategy.md`](marketing/distribution-strategy.md), [`marketing/go-to-market.md`](marketing/go-to-market.md) — channel and GTM thinking. *If no one finds it, it doesn't matter that it works.*
 
@@ -64,8 +65,9 @@ If you want to change them to match how you think, fork the repo and point your 
 
 ## Chains and gaps
 
-Most prompts are run manually today — pick one, paste, run. A few are orchestrators that classify the work and compose other prompts on demand:
+Most prompts are run manually today — pick one, paste, run. A growing set are orchestrators that classify the work and compose other prompts on demand:
 
+- `idea-validate` (`::IV`) classifies the idea, then pulls JTBD + requirements-interview + competitor scan + risk surface + resource fit as needed; outputs a GO / NO-GO / MODIFY verdict with v1 scope or kill criteria. Use BEFORE you commit to building.
 - `plan-critique-3x` classifies the plan, then pulls JTBD + UX + validation as needed
 - `pr-review` (the upgraded `::R`) classifies the diff, then pulls security + perf + UX + migration-safety + quality-hunt as needed, dedupes findings, runs a confidence-gated verifier loop (max 3 iterations), and produces one P0/P1/P2 list
 - `team-assembly-3r` proposes 3–5 personas, runs N rounds of discussion, outputs sequenced tasks
@@ -89,7 +91,6 @@ Most prompts are run manually today — pick one, paste, run. A few are orchestr
 
 Chains worth building next:
 
-- **idea-validate** — `jtbd` + `requirements-interview` + a competitor scan. Output: should we build this, and what's v1?
 - **ship-cycle** — `ship-and-cleanup` + `doc-cleanup` + `lessons-learned` after merge
 
 Gaps I notice when actually using these on real projects:
