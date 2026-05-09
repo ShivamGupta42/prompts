@@ -30,19 +30,11 @@ For each subsequent stage, decide APPLY or SKIP with one-line reason:
 | Lessons learned | APPLY/SKIP | reason (e.g., "non-trivial bugfix surfaced patterns" / "single-line typo: nothing to extract") |
 
 STAGE 3 — DOC CLEANUP (when applicable; runs BEFORE merge so doc updates are part of the PR)
-Walk the PR diff (`git diff main...HEAD` or master—check which base). For each non-trivial code or behavior change, ask:
-- Does any canonical doc reference the OLD behavior? (CLAUDE.md, AGENTS.md, README, docs/, runbooks, API reference)
-- Does any canonical doc need to ADD coverage of the NEW behavior?
-- Are there examples in docs that now produce different output?
-- Did any deprecation warning land that needs a sunset note in docs?
+Apply the doc-cleanup pass (per ::D) against the PR diff. **Commit doc updates as the FINAL commit(s) on the feature branch** with a message like "docs: refresh canonical docs for <feature>". Push.
 
-Update affected docs in place. **Commit the doc updates as the FINAL commit(s) on the feature branch** with a message like "docs: refresh canonical docs for <feature>". Push.
-
-Why before merge: doc updates that land directly on master post-merge bypass PR review and create a window where master has new code with stale docs. Keeping doc commits inside the PR means they ship atomically with the code (squash-merge folds them into the same commit) and pass through the same review/CI safety net.
+Why BEFORE merge (load-bearing): doc updates that land on master post-merge bypass PR review entirely and create a window where master has new code with stale docs. Inside the PR, doc commits ship atomically with the code (squash-merge folds them in) and pass the same review/CI safety net.
 
 If unsure whether a doc needs updating, surface as "review needed" — don't skip silently and don't commit a speculative doc change.
-
-For deeper standalone doc-cleanup pass, fall back to ::D.
 
 STAGE 4 — PRE-MERGE RE-CHECK (after doc commits land, if Stage 3 ran)
 Re-confirm Stage 1 conditions still hold:
@@ -64,22 +56,7 @@ Chain it all so nothing runs from the dying worktree.
 Confirm after: master is current, feature worktree is gone, branch deleted both locally and on remote.
 
 STAGE 6 — LESSONS LEARNED (for non-trivial work; post-merge, reflective)
-Reflect on the session that produced this PR:
-- What patterns emerged worth capturing?
-- What anti-patterns surfaced worth flagging?
-- What debugging insights would help next time?
-
-For each: state the pattern, why it matters, code example if applicable. Map to your project's knowledge-base files (CLAUDE.md, AGENTS.md, docs/, context/, README, or wherever your team documents conventions).
-
-Rate confidence each lesson is broadly applicable vs one-off:
-- 1-3: guessing
-- 4-6: informed but unverified
-- 7-8: seen in multiple sessions/projects
-- 9-10: verified pattern with strong evidence
-
-Only include ≥7/10 lessons. Be VERY brief in suggestions. Check for duplicates — if a similar lesson exists, propose enhancement instead of new entry.
-
-For deeper standalone lessons-learned pass, fall back to ::L.
+Apply the lessons-learned pass (per ::L) on the session that produced this PR. ≥7/10 confidence threshold. Check for duplicates against existing knowledge-base files; propose enhancement rather than new entry if a similar lesson exists.
 
 STAGE 7 — FINAL STATE CHECK
 Verify the cycle is complete:
