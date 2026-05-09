@@ -1,8 +1,10 @@
 # prompts
 
-Most AI prompts ask for output. These ones also ask the model to rate its confidence and flag what it can't actually determine, so you can tell which parts are solid and which are guesswork.
+Prompts I use when building software with coding agents (Claude Code, Codex, Cursor, Gemini, Aider).
 
-Plan critique, PR review, UX evaluation, validation, security analysis, and a few more. Copy any body into Claude, Codex, Gemini, or ChatGPT. Nothing to install.
+Each one takes a plan, PR, spec, or deploy and produces a structured review: explicit confidence ratings, P0/P1/P2 findings, and skip-with-reason where context is thin. The kind of pass that catches the bug the agent missed or the assumption nobody validated.
+
+Plan critique, PR review, UX evaluation, validation, security, performance, and a few more. Copy any body into your chat. Nothing to install.
 
 ## How they're organized
 
