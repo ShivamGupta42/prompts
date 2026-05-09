@@ -1,12 +1,38 @@
 # prompts
 
-Prompts I use when building software with coding agents (Claude Code, Codex, Cursor, Gemini, Aider).
+Prompts I use when building software with coding agents (Claude Code, Codex, Cursor, Gemini, Aider). Each one produces a structured review with confidence ratings and P0/P1/P2 findings. Here's which to grab at each stage of the work:
 
-Each one takes a plan, PR, spec, or deploy and produces a structured review: explicit confidence ratings, P0/P1/P2 findings, and skip-with-reason where context is thin. The kind of pass that catches the bug the agent missed or the assumption nobody validated.
+### Starting an idea — before any code or spec exists
 
-Plan critique, PR review, UX evaluation, validation, security, performance, and a few more. Copy any body into your chat. Nothing to install.
+- [`ux/jtbd.md`](ux/jtbd.md) — state the job, rate the four forces (push/pull/anxiety/habit), find competing solutions
+- [`planning/requirements-interview.md`](planning/requirements-interview.md) — clarify ambiguous asks one question at a time
+- [`marketing/distribution-strategy.md`](marketing/distribution-strategy.md), [`marketing/go-to-market.md`](marketing/go-to-market.md), [`marketing/marketing-review.md`](marketing/marketing-review.md) — channel and GTM before code
 
-## How they're organized
+### Planning — pressure-test the plan before writing code
+
+- [`planning/plan-critique-1x.md`](planning/plan-critique-1x.md), [`planning/plan-critique-3x.md`](planning/plan-critique-3x.md), [`planning/plan-critique-5x.md`](planning/plan-critique-5x.md) — adaptive critique that classifies the plan, runs N cycles, pulls in JTBD/UX/validation
+- [`planning/principal-critique.md`](planning/principal-critique.md) — adversarial senior-engineer pass on assumptions, edge cases, failure modes, scale
+- [`planning/team-assembly-1r.md`](planning/team-assembly-1r.md), [`planning/team-assembly-2r.md`](planning/team-assembly-2r.md), [`planning/team-assembly-3r.md`](planning/team-assembly-3r.md), [`planning/team-assembly-5r.md`](planning/team-assembly-5r.md) — assemble personas, run multi-round discussion, output sequenced tasks
+- [`validation-criteria.md`](validation-criteria.md) — define what "done" looks like (so the QA pass has something to check against)
+
+### Reviewing — verify what you (or the agent) built
+
+- [`dev/pr-review.md`](dev/pr-review.md) — structured PR review against project patterns
+- [`qa/security-gate.md`](qa/security-gate.md) and [`qa/performance-profiler.md`](qa/performance-profiler.md) — deep security and perf analysis on the diff
+- [`qa/manual-qa-checklist.md`](qa/manual-qa-checklist.md), [`qa/quick-smoke-test.md`](qa/quick-smoke-test.md), [`qa/browser-qa.md`](qa/browser-qa.md) — testing at three depths
+- [`qa/quality-hunt.md`](qa/quality-hunt.md) — find similar bugs elsewhere, propose prevention
+- [`ux/ux-critique.md`](ux/ux-critique.md), [`ux/ux-friction-fix.md`](ux/ux-friction-fix.md) — design review on user-facing changes
+- [`dev/evaluate-feedback.md`](dev/evaluate-feedback.md), [`dev/fix-issues.md`](dev/fix-issues.md) — work through feedback systematically and fix
+
+### After shipping — close the loop
+
+- [`dev/ship-and-cleanup.md`](dev/ship-and-cleanup.md) — merge PR, remove worktree, delete branch
+- [`dev/doc-cleanup.md`](dev/doc-cleanup.md) — refresh canonical docs against the changes
+- [`learning/lessons-learned.md`](learning/lessons-learned.md) — extract generalizable patterns from the session
+
+Copy any body into your AI chat. Nothing to install. Full file-level list in [INDEX.md](INDEX.md).
+
+## Folder layout
 
 ```
 prompts/
@@ -18,8 +44,6 @@ prompts/
 ├── learning/                  lessons learned
 └── validation-criteria.md     cross-cutting (used by most plans)
 ```
-
-Click into [planning/](planning/), [dev/](dev/), [ux/](ux/), [qa/](qa/), [marketing/](marketing/), [learning/](learning/), or browse the full file-level list in [INDEX.md](INDEX.md).
 
 ## How to use them
 
