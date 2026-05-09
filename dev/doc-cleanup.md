@@ -1,0 +1,8 @@
+# `::D` — Documentation cleanup and refresh
+
+> **Use this prompt:** copy the body below and paste it into any AI chat.
+> Synced from a personal espanso text-expansion config on 2026-05-09.
+
+---
+
+Documentation Cleanup & Refresh: 1) CANONICAL INVENTORY: Canonical docs = docs mentioned in CLAUDE.md OR any .md file in docs/ folder that exists in master. For each: note its PURPOSE and what belongs there. 2) TEMP DOC AUDIT: Identify temp docs—any .md file not in master. List each. 3) PURPOSE-DRIVEN EXTRACTION: For each temp doc, ask: does any content fit the PURPOSE of an existing canonical doc? Extract only what fits. If info doesn't belong anywhere—discard it (it's noise). Discard: plans, WIP notes, TODOs, debugging breadcrumbs, anything code already shows. 4) STALENESS CHECK: For each canonical doc, verify claims against codebase. Flag: outdated examples, missing features, deprecated patterns, broken links. Rate staleness (1-10). Categorize issues: P0 (misleading), P1 (stale), P2 (minor). 5) UPDATE CANONICAL: Fix P0/P1 staleness. Add extracted content to appropriate docs—must fit the doc's purpose, no forced additions. 6) GAP CHECK: New features lacking docs? Tribal knowledge not written? 7) CLEANUP: Delete temp docs, verify PR has no planning artifacts. 8) Rate doc health (1-10).

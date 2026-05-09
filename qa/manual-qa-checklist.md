@@ -1,0 +1,8 @@
+# `::QA` — Generate manual QA checklist
+
+> **Use this prompt:** copy the body below and paste it into any AI chat.
+> Synced from a personal espanso text-expansion config on 2026-05-09.
+
+---
+
+Manual QA Checklist: Generate a comprehensive manual testing checklist for this feature branch. 1) PREREQUISITES: List exact environment setup—server state, database seeds, test accounts, feature flags, env vars. What must be true before testing starts? 2) FEATURE INVENTORY: Use git diff against main to identify all user-facing changes. Group by: new features, modified behaviors, removed functionality. 3) TEST PROCEDURES: For each change, provide step-by-step actions—exact clicks, inputs, navigation. Include specific test data values, not placeholders. What does the user see at each step? 4) EXPECTED OUTCOMES: Per step—what success looks like (UI state, data changes, network calls). Be precise: 'Toast appears within 2s' not 'feedback shown'. 5) EDGE CASES: Per feature—empty states, boundary values, invalid input, rapid repeated actions, interrupted flows, concurrent operations, network failures, permission denied. 6) ACCESSIBILITY: Keyboard-only navigation path, focus management, screen reader announcements, color contrast, touch targets (44px min). 7) CROSS-BROWSER: Note any features needing Safari/Firefox/mobile verification. 8) REGRESSION RISKS: What existing features might break? List specific flows to verify unchanged. 9) TEST DATA SETUP: Exact commands or steps to create required test state. Include cleanup steps. 10) PRIORITY: Mark each test P0 (blocks release), P1 (should test), P2 (nice to have). Output as executable checklist with [ ] checkboxes.
