@@ -1,6 +1,6 @@
 # Prompts index
 
-Last synced 2026-05-09. 34 prompts.
+Last synced 2026-05-09. 35 prompts.
 
 ## planning
 
@@ -34,6 +34,7 @@ Last synced 2026-05-09. 34 prompts.
 
 - [`browser-qa`](qa/browser-qa.md) — Live browser QA via automation
 - [`manual-qa-checklist`](qa/manual-qa-checklist.md) — Generate manual QA checklist
+- [`migration-safety-review`](qa/migration-safety-review.md) — Migration safety review (DB schema, API, contracts)
 - [`performance-profiler`](qa/performance-profiler.md) — Deep performance analysis of PR diff
 - [`qa-review`](qa/qa-review.md) — Senior QA adversarial critique of validation criteria
 - [`quality-hunt`](qa/quality-hunt.md) — Find similar bugs and propose prevention
