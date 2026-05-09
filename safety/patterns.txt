@@ -1,0 +1,20 @@
+# Personal-info patterns to block from this public repo.
+# One Python regex per line. Lines starting with # are comments. Blank lines ignored.
+# Used by safety/check-patterns.py, invoked from both the local pre-commit hook
+# and the GitHub Action workflow.
+#
+# To add a new pattern: append a line, run `python3 safety/check-patterns.py` to
+# verify it does not false-positive on existing files, then commit through the
+# normal PR flow.
+
+# Real first name (case-insensitive). Allowlists the GitHub handle (ShivamGupta42).
+(?i)shivam(?! ?gupta42\b)
+
+# Personal email
+(?i)amazing\.gupta\.family@gmail\.com
+
+# Local macOS path
+/Users/shivamgupta
+
+# Linux equivalent (defensive)
+/home/shivam

@@ -1,0 +1,38 @@
+name: safety-scan
+
+# Server-side mirror of the local pre-commit safety hooks.
+# Catches commits that bypassed the local hook (e.g. via --no-verify) or were
+# pushed from a clone without `pre-commit install` run.
+#
+# This workflow does NOT interpolate any untrusted github.event.* fields into
+# run: steps. The only secret used is the auto-provided GITHUB_TOKEN.
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+permissions:
+  contents: read
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (full history)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Run forbidden-patterns scan
+        run: python3 safety/check-patterns.py
