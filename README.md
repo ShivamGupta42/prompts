@@ -23,8 +23,8 @@ Once you have a plan, pressure-test it.
 
 Once code is written (by you or an agent), verify it.
 
-- [`dev/pr-review.md`](dev/pr-review.md) — structured pass against project patterns. *"LGTM" misses real bugs.*
-- [`qa/security-gate.md`](qa/security-gate.md) — paranoid attack-surface analysis on the diff. *Every input is potentially hostile.*
+- [`dev/pr-review.md`](dev/pr-review.md) — **adaptive orchestrator**: classifies the diff and pulls in the security/perf/UX/migration/quality-hunt lenses as needed; dedupes findings into one P0/P1/P2 list. Trivial diffs degrade gracefully to a focused pr-review pass. *"LGTM" misses real bugs; running 5 separate reviews after every PR is what gets skipped when tired.*
+- [`qa/security-gate.md`](qa/security-gate.md) — paranoid attack-surface analysis on the diff. *Every input is potentially hostile.* (The orchestrator runs this when relevant; fire it standalone for a deeper single-lens pass.)
 - [`qa/performance-profiler.md`](qa/performance-profiler.md) — find what breaks under load. *Big-O matters at 100x.*
 - [`qa/quality-hunt.md`](qa/quality-hunt.md) — find similar bugs elsewhere. *The bug you fixed is rarely the only instance.*
 - [`qa/manual-qa-checklist.md`](qa/manual-qa-checklist.md), [`qa/quick-smoke-test.md`](qa/quick-smoke-test.md), [`qa/browser-qa.md`](qa/browser-qa.md) — testing at three depths. *"Did you test it?" needs concrete steps.*
@@ -64,36 +64,40 @@ If you want to change them to match how you think, fork the repo and point your 
 
 ## Chains and gaps
 
-Most prompts are run manually today — pick one, paste, run. A few are already orchestrators that compose others on demand:
+Most prompts are run manually today — pick one, paste, run. A few are orchestrators that classify the work and compose other prompts on demand:
 
 - `plan-critique-3x` classifies the plan, then pulls JTBD + UX + validation as needed
+- `pr-review` (the upgraded `::R`) classifies the diff, then pulls security + perf + UX + migration-safety + quality-hunt as needed, dedupes findings, runs a confidence-gated verifier loop (max 3 iterations), and produces one P0/P1/P2 list
 - `team-assembly-3r` proposes 3–5 personas, runs N rounds of discussion, outputs sequenced tasks
 
 ```
-       plan-critique-3x          <- orchestrator
+       pr-review (orchestrator)
              │
-             │  classifies the plan, then pulls:
+             │  classifies the diff, then pulls:
              ▼
-   ┌─────────┴─────────┬────────────────────┐
-   ▼                   ▼                    ▼
-   jtbd          ux-critique         validation-criteria
-   (skip if      (skip if            (always)
-    backend)     backend)
+   ┌─────┬─────┬───────────┬───────────────┬──────────────┐
+   ▼     ▼     ▼           ▼               ▼              ▼
+   sec   perf  ux-critique migration-safety quality-hunt  (always
+   gate                                                    just runs
+                                                          pr-review
+                                                          spec)
+            │
+            ▼
+   dedupe → cross-lens patterns → verifier loop (max 3) →
+   proof-of-understanding for P0 → unified P0/P1/P2 output
 ```
 
 Chains worth building next:
 
 - **idea-validate** — `jtbd` + `requirements-interview` + a competitor scan. Output: should we build this, and what's v1?
-- **review-everything** — `pr-review` + `security-gate` + `performance-profiler` + `ux-critique` + `quality-hunt` in parallel, combined into one P0/P1/P2 list
 - **ship-cycle** — `ship-and-cleanup` + `doc-cleanup` + `lessons-learned` after merge
 
 Gaps I notice when actually using these on real projects:
 
-- **Post-mortem template** for when something breaks in prod
-- **Migration safety review** for DB schema changes, breaking API changes, deprecations
 - **Observability review** — does the new code emit useful logs, metrics, traces?
 - **Architecture decision record** — capture why X over Y in the moment, not after the fact
 - **Estimation prompt** — bound the work realistically before committing
+- **Rollback plan review** — what's the fast revert when the rollback signal fires?
 - **Rollback plan review** — what's the fast revert when the rollback signal fires?
 
 Issues and PRs welcome.

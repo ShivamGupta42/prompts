@@ -1,6 +1,6 @@
 # Prompts index
 
-Last synced 2026-05-09. 36 prompts.
+Last synced 2026-05-10. 36 prompts.
 
 ## planning
 
@@ -21,7 +21,7 @@ Last synced 2026-05-09. 36 prompts.
 - [`doc-cleanup`](dev/doc-cleanup.md) — Documentation cleanup and refresh
 - [`evaluate-feedback`](dev/evaluate-feedback.md) — Evaluate feedback deeply
 - [`fix-issues`](dev/fix-issues.md) — Fix identified issues
-- [`pr-review`](dev/pr-review.md) — Review feature branch changes
+- [`pr-review`](dev/pr-review.md) — Review everything (adaptive multi-lens orchestrator)
 - [`ship-and-cleanup`](dev/ship-and-cleanup.md) — Ship PR and clean up worktree
 
 ## ux
