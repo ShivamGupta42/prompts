@@ -104,7 +104,7 @@ Issues and PRs welcome.
 
 ## Design choices
 
-The prompts share four traits:
+The prompts share five traits:
 
 **Adversarial by default.** They ask the model to push back, rate confidence, and STOP rather than guess when context is thin. Sycophantic output is what I'm trying to avoid.
 
@@ -113,6 +113,8 @@ The prompts share four traits:
 **P0/P1/P2 triage.** Findings get sorted into one of three buckets. Easy to scan, easy to act on.
 
 **Skip with a reason; never fabricate.** When a section doesn't apply, the prompts say so instead of padding to look thorough. Catches a lot of slop.
+
+**Inputs flow forward.** Every step's inputs are produced by earlier steps, never later ones. If a step references something a later step is supposed to produce, it's a bug — either reorder, or insert the missing producer. Surfaced after auditing 6 ordering bugs that all had the same shape (downstream step depending on input that hadn't been produced yet). Worth using as the diagnostic when designing or critiquing any multi-step prompt.
 
 ## Where these come from
 
