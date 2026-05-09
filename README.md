@@ -36,9 +36,9 @@ Once code is written (by you or an agent), verify it.
 
 Close the loop.
 
-- [`dev/ship-and-cleanup.md`](dev/ship-and-cleanup.md) — merge PR, remove worktree, delete branch. *Branch detritus accumulates fast.*
-- [`dev/doc-cleanup.md`](dev/doc-cleanup.md) — refresh canonical docs against the changes. *Drifted docs are worse than missing ones.*
-- [`learning/lessons-learned.md`](learning/lessons-learned.md) — extract generalizable patterns. *Same mistake twice is a process failure.*
+- [`dev/ship-and-cleanup.md`](dev/ship-and-cleanup.md) — **adaptive orchestrator**: pre-flight check, classifies the work, runs merge + worktree cleanup, refreshes drifted docs when relevant, captures lessons for non-trivial work, final state check. Trivial chores skip docs+lessons and you get effectively the original merge+cleanup. *Branch detritus accumulates fast; docs drift silently; lessons evaporate within hours of merging.*
+- [`dev/doc-cleanup.md`](dev/doc-cleanup.md) — refresh canonical docs against the changes. *Drifted docs are worse than missing ones.* (The orchestrator runs this when relevant; fire it standalone for a deeper pass.)
+- [`learning/lessons-learned.md`](learning/lessons-learned.md) — extract generalizable patterns. *Same mistake twice is a process failure.* (Same — composed by the orchestrator; available standalone.)
 
 Copy any body into your AI chat. Nothing to install. Full file-level list in [INDEX.md](INDEX.md).
 
@@ -70,6 +70,7 @@ Most prompts are run manually today — pick one, paste, run. A growing set are 
 - `idea-validate` (`::IV`) classifies the idea, then pulls JTBD + requirements-interview + competitor scan + risk surface + resource fit as needed; outputs a GO / NO-GO / MODIFY verdict with v1 scope or kill criteria. Use BEFORE you commit to building.
 - `plan-critique-3x` classifies the plan, then pulls JTBD + UX + validation as needed
 - `pr-review` (the upgraded `::R`) classifies the diff, then pulls security + perf + UX + migration-safety + quality-hunt as needed, dedupes findings, runs a confidence-gated verifier loop (max 3 iterations), and produces one P0/P1/P2 list
+- `ship-and-cleanup` (the upgraded `::W`) pre-flight-checks, classifies the work, runs merge + worktree cleanup + adaptive doc cleanup + lessons-learned + final state check
 - `team-assembly-3r` proposes 3–5 personas, runs N rounds of discussion, outputs sequenced tasks
 
 ```
@@ -89,9 +90,7 @@ Most prompts are run manually today — pick one, paste, run. A growing set are 
    proof-of-understanding for P0 → unified P0/P1/P2 output
 ```
 
-Chains worth building next:
-
-- **ship-cycle** — `ship-and-cleanup` + `doc-cleanup` + `lessons-learned` after merge
+All three chains identified in the original "worth building next" list have shipped (`idea-validate`, `pr-review` orchestrator via `::R`, `ship-and-cleanup` orchestrator via `::W`). The workflow loop is closed: idea → plan → review → ship.
 
 Gaps I notice when actually using these on real projects:
 
