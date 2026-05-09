@@ -32,30 +32,19 @@ If the idea has multiple plausible interpretations, clarify the scope FIRST so o
 If scope is concrete enough to skip this lens, say so with a one-line reason and proceed.
 Full spec: https://raw.githubusercontent.com/ShivamGupta42/prompts/master/planning/requirements-interview.md
 
-STAGE 2b — JTBD (always; defines the job that subsequent lenses reason about)
-State the job — "When [situation], a person wants to [motivation], so they can [outcome]." Rate four forces 1-10 (push/pull/anxiety/habit). Walk the journey, mark friction. Name the single highest-impact improvement with confidence.
-The output of this stage (especially the job statement) is INPUT to Stage 2c's competitor scan.
-Full spec: https://raw.githubusercontent.com/ShivamGupta42/prompts/master/ux/jtbd.md
+STAGE 2b — JTBD (always; defines the job that Stage 2c reasons about)
+Apply the JTBD framework (per ::J): job statement template "When [situation], a person wants to [motivation], so they can [outcome]." Rate four forces 1-10 (push/pull/anxiety/habit). Journey friction. Single highest-impact improvement with confidence.
+The job statement from this stage is INPUT to Stage 2c's competitor scan.
 
-STAGE 2c — COMPETITOR SCAN + RISK SURFACE + RESOURCE FIT (parallel; all three independent of each other but all depend on Stage 2b)
+STAGE 2c — COMPETITOR SCAN + RISK SURFACE + RESOURCE FIT (parallel; all depend on 2b)
 
-COMPETITOR SCAN (uses JTBD's job statement to know what alternatives to compare): List 3-7 alternatives the user might hire INSTEAD to do the same job — direct competitors, indirect substitutes (spreadsheet, Slack channel, notebook), doing nothing (the most-hired competitor in most categories), hiring a person. For each: what trade-off does the user accept by choosing it? What's the gap THIS idea fills?
+COMPETITOR SCAN: List 3-7 alternatives the user might hire INSTEAD to do the same job (from 2b). Include direct competitors, indirect substitutes (spreadsheet, Slack channel, notebook), DOING NOTHING (the most-hired competitor in most categories — always include this), and hiring a person. For each: trade-off accepted, gap THIS idea fills.
 
-RISK SURFACE: For each risk family, name 1-3 concrete risks if they apply. Skip families that don't apply with one-line reason.
-- Legal: regulatory exposure, IP, contracts, ToS violations
-- Security: data exposure, auth surface, third-party deps, secrets handling
-- Ethical: harm to users, dual-use potential, accessibility, bias
-- Operational: support cost, on-call burden, incident risk, infra cost
-- Brand: reputation, public perception, association
+RISK SURFACE: For each applicable risk family (legal, security, ethical, operational, brand), name 1-3 concrete risks. Skip families that don't apply with a one-line reason.
 
-RESOURCE FIT: Estimate cost in three units:
-- Time: realistic person-weeks for v1 (be honest; planning fallacy is real)
-- Capacity: who needs to be involved; what they're not doing instead (opportunity cost)
-- Money: infra, tools, services, third-party fees
-Then estimate value: who gets what; how much; how confident (1-10)?
-Cost/value ratio — does it pencil?
+RESOURCE FIT: Estimate cost (time / capacity / money — be honest about planning fallacy). Estimate value (who gets what; how confident 1-10). Does the ratio pencil?
 
-For deeper standalone passes on any lens, fall back to: ::J (JTBD), ::PR (requirements interview), or fetch full specs from the URLs above.
+For deeper standalone passes: ::J (JTBD), ::PR (requirements interview).
 
 STAGE 3 — DEDUPE AND SYNTHESIZE
 Walk all lens outputs. Merge overlapping concerns:

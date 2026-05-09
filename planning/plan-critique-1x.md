@@ -10,11 +10,11 @@ Critique your plan with 1 adaptive review cycle.
 
 3. ARCHITECTURE (always): Flag risks, breaking changes, consistency issues, performance concerns. Pre-alpha = no migration debt, fix now not later. Findings should reference confidence anchors (verified by reading code in Stage 2 = 7-8; verified with test run = 9-10).
 
-4. USER IMPACT (only if user-facing or mixed; else skip with reason). Apply both evaluations—
-   - JTBD: State the job (when [situation], a person wants to [motivation], so they can [outcome]). Rate four forces 1-10 (push from current solution / pull toward this / anxiety about switching / habit holding them in place). Walk the journey, mark friction and anxiety per stage. Name the single highest-impact improvement with confidence rating.
-   - UX critique: Walk 8 categories—first impression, hierarchy, consistency with the system, information completeness, copy clarity, mobile fit, accessibility, error/edge states. Surface 5-10 issues max grouped P0 (blocks usability) / P1 (noticeable friction) / P2 (polish). For each P0/P1: what's wrong + specific fix. Then friction-to-fix walkthrough on the top item: root cause, design fix, hypothesis, side effects, smallest version.
+4. USER IMPACT (only if user-facing or mixed; else skip with reason). Apply both:
+   - JTBD pass (per ::J): job statement, four forces (1-10), journey friction, highest-impact improvement
+   - UX critique pass (per ::UX): 8-category review with P0/P1/P2 fixes; friction-to-fix on the top item
 
-5. VALIDATION CRITERIA (always): For every change, define observable "done"—exact inputs, expected outputs, where to look. Include: edge cases (empty/null/boundary/concurrent/partial-failure/unicode), regression checks (what existing behavior must NOT change), integration points (contracts up/downstream), rollback signal (observable threshold that says "revert immediately"). Group as P0 (blocks release) / P1 (should verify) / P2 (nice). Mark each criterion as automated/manual/production-only. Rate confidence the criteria are complete (1-10).
+5. VALIDATION CRITERIA (always): apply per ::QV. Per change: observable "done" with edge cases / regression checks / integration contracts / rollback signal. Group P0 (blocks release) / P1 (should verify) / P2 (nice). Mark each automated/manual/production-only. Rate criteria completeness (1-10).
 
 6. REWRITE: Update plan with verified understanding, observations, questions surfaced, validation criteria appended.
 

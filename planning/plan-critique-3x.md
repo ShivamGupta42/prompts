@@ -11,11 +11,11 @@ PER CYCLE (commit and push after each):
 
 3. ARCHITECTURE (always): Flag risks, breaking changes, consistency issues, performance concerns. Pre-alpha = no migration debt, fix now not later.
 
-4. USER IMPACT (only if user-facing or mixed; else skip with reason). Apply both evaluations—
-   - JTBD: State the job (when [situation], a person wants to [motivation], so they can [outcome]). Rate four forces 1-10 (push/pull/anxiety/habit). Walk the journey, mark friction and anxiety per stage. Single highest-impact improvement with confidence rating.
-   - UX critique: 8 categories—first impression, hierarchy, consistency, information completeness, copy clarity, mobile fit, accessibility, error/edge states. 5-10 issues max grouped P0/P1/P2 with specific fixes. Friction-to-fix walkthrough on the top item.
+4. USER IMPACT (only if user-facing or mixed; else skip with reason). Apply both:
+   - JTBD pass (per ::J): job statement, four forces (1-10), journey friction, highest-impact improvement
+   - UX critique pass (per ::UX): 8-category review with P0/P1/P2 fixes; friction-to-fix on the top item
 
-5. VALIDATION CRITERIA (always): For every change, define observable "done"—exact inputs, expected outputs, where to look. Include edge cases (empty/null/boundary/concurrent/partial-failure/unicode), regression checks, integration contracts, rollback signal (observable threshold). Group P0/P1/P2. Mark each automated/manual/production-only. Rate criteria completeness (1-10).
+5. VALIDATION CRITERIA (always): apply per ::QV. P0/P1/P2 grouping with rollback signal. Each criterion marked automated/manual/production-only. Rate completeness (1-10).
 
 6. REWRITE: Update plan with verified understanding, observations, questions surfaced, validation criteria refined.
 

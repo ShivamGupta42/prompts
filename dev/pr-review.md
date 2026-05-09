@@ -25,18 +25,15 @@ Output:
 
 STAGE 2 — APPLY LENSES (parallel where supported; otherwise sequential per lens)
 
-Brief inline specs for each APPLY lens:
+For each APPLY lens, run its standard analysis on the diff. Each lens must produce: P0/P1/P2 findings with confidence (1-10) and specific fixes. The standalone triggers ::QS / ::QP / ::UX / ::QM / ::QH each have the full lens spec — use those when you want maximum rigor or when the lens is unfamiliar. The pr-review lens (always-applied structured project-pattern pass against project lessons-learned, file categories, coverage gaps) lives only in this orchestrator; it has no standalone trigger.
 
-- PR REVIEW: Walk diff against project patterns. Modified files by category (code/tests/config/docs) with risk level. Confidence per change. Lessons-learned violations. Coverage gaps (tests, docs, error handling). Top 5-10 findings.
-- SECURITY GATE: Map new inputs/outputs. Per input: validation (try payloads `';DROP`, `<script>`, `../../`, oversized strings), auth/authz, data flow, secrets, dependency risks, race conditions. Concrete exploit scenarios with likelihood × severity.
-- PERFORMANCE PROFILER: Hot-path classification. Triage relevant dimensions (algorithmic, DB, memory, I/O, concurrency, latency, resource exhaustion, frontend). Cascading effects, load projection, quick wins.
-- UX CRITIQUE: 8 categories—first impression, hierarchy, consistency, information completeness, copy clarity, mobile fit, accessibility, error/edge states. 5-10 issues max P0/P1/P2 with specific fixes. Friction-to-fix on the top item.
-- MIGRATION SAFETY: Change inventory (classify each), data risk (drops/narrowing/NOT NULL/UNIQUE/FK), lock behavior + duration, rollout order (expand-contract), rollback path (point of no return), contract/client impact, performance, exploit scenarios.
-- QUALITY HUNT: Name root pattern of the bug. Search codebase for same pattern. List every occurrence with file:line and risk. Propose architectural prevention.
+Distinguishing rules at the orchestrator's vantage point (the standalones may not emphasize these):
+- SECURITY GATE: try concrete exploit payloads, not abstract category checklists
+- PERFORMANCE PROFILER: triage which dimensions matter for THESE changes — don't list-check every dimension
+- MIGRATION SAFETY: surface the point-of-no-return in the rollback path
+- QUALITY HUNT: only fires when the diff contains a bug fix; the goal is finding the same root pattern elsewhere
 
-For deeper single-lens passes, fall back to standalone triggers (::QS, ::QP, ::UX, ::QM, ::QH) — each has the full standalone prompt.
-
-If you have parallel-execution tools (like Task() in Claude Code), spawn one subagent per APPLY lens with fresh context, each fetching the full lens spec from https://raw.githubusercontent.com/ShivamGupta42/prompts/master/<folder>/<name>.md. Otherwise apply the inline specs above lens by lens.
+If you have parallel-execution tools (Task() in Claude Code), spawn one subagent per APPLY lens with fresh context, each fetching the full lens spec from https://raw.githubusercontent.com/ShivamGupta42/prompts/master/<folder>/<name>.md. Otherwise sequential per lens.
 
 STAGE 3 — DEDUPE FINDINGS (mandatory, not optional)
 Walk all findings. Key by (file, line, semantic-fingerprint). Merge duplicates:
