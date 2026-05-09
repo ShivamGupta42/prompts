@@ -1,12 +1,8 @@
 # prompts
 
-The default failure mode for AI assistants is confident slop. You ask for validation criteria and get rambling prose that doesn't actually validate anything. You ask for a thorough review and the obvious bug stays unflagged. You ask for pushback and get *"great point!"* instead.
+Most AI prompts ask for output. These ones also ask the model to rate its confidence and flag what it can't actually determine, so you can tell which parts are solid and which are guesswork.
 
-These prompts are built to fight that. They force the model to rate its own confidence on a fixed scale, name what it can't determine from the context, push back on weak plans, and STOP rather than guess.
-
-They cover what I do day to day: planning and plan critique, PR review, evaluating user impact (JTBD + UX), validation criteria, security analysis, performance profiling, marketing audits, and lessons-learned reflections.
-
-Each one is a self-contained markdown file. Copy the body into Claude, Codex, Gemini, ChatGPT. Nothing to install.
+Plan critique, PR review, UX evaluation, validation, security analysis, and a few more. Copy any body into Claude, Codex, Gemini, or ChatGPT. Nothing to install.
 
 ## How they're organized
 
