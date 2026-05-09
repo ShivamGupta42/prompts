@@ -5,15 +5,15 @@ Critique your plan with 5 full adaptive review cycles.
 PER CYCLE (commit and push after each):
 0. CLASSIFY: One sentence—user-facing, backend-only, infra, or mixed? State which lenses will run and which are skipped (one-line reason each). Re-classify per cycle—scope can shift as critique deepens.
 
-1. ASSUMPTIONS (always): List every assumption. Spawn an agent per assumption group to verify—no agent limit. Rate confidence per assumption after investigation.
+1. ASSUMPTIONS (always): List every assumption. Spawn an agent per assumption group to verify—no agent limit. Rate confidence per assumption (1-10).
 
-2. ARCHITECTURE (always): Flag risks, breaking changes, consistency issues, performance concerns. Pre-alpha = no migration debt, fix now not later.
+2. LOW-CONFIDENCE RESOLUTION (always): For every assumption rated <7/10 in Stage 1, read the actual code to verify or refute. Don't guess. Subsequent stages may also read code if they surface new low-confidence areas.
 
-3. USER IMPACT (only if user-facing or mixed; else skip with reason). Apply both evaluations—
+3. ARCHITECTURE (always): Flag risks, breaking changes, consistency issues, performance concerns. Pre-alpha = no migration debt, fix now not later.
+
+4. USER IMPACT (only if user-facing or mixed; else skip with reason). Apply both evaluations—
    - JTBD: State the job (when [situation], a person wants to [motivation], so they can [outcome]). Rate four forces 1-10 (push/pull/anxiety/habit). Walk the journey, mark friction and anxiety per stage. Single highest-impact improvement with confidence rating.
    - UX critique: 8 categories—first impression, hierarchy, consistency, information completeness, copy clarity, mobile fit, accessibility, error/edge states. 5-10 issues max grouped P0/P1/P2 with specific fixes. Friction-to-fix walkthrough on the top item.
-
-4. LOW-CONFIDENCE (always): Explore all <7/10 areas deeply. Read the actual code, don't guess.
 
 5. VALIDATION CRITERIA (always): For every change, define observable "done"—exact inputs, expected outputs, where to look. Include edge cases (empty/null/boundary/concurrent/partial-failure/unicode), regression checks, integration contracts, rollback signal (observable threshold). Group P0/P1/P2. Mark each automated/manual/production-only. Rate criteria completeness (1-10).
 
