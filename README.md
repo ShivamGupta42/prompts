@@ -1,50 +1,53 @@
 # prompts
 
-A small library of reusable prompts for working with AI assistants.
+Prompts I use with AI assistants. They cover planning, code review, UX critique, validation, and a few other things I do repeatedly.
 
-These are the prompts I actually use, every day, to plan work, critique my own thinking, evaluate user impact, and ship with some confidence that I haven't missed something obvious.
-
-Each one is a self-contained markdown file. Copy the body, paste it into your AI chat (Claude, Codex, Gemini, ChatGPT — they all work), and the prompt does the work. No setup, no library to install, no API key.
+Each one is a markdown file. Copy the body into your AI chat (Claude, Codex, Gemini, ChatGPT all work fine). Nothing to install.
 
 ## How they're organized
 
-Browse the [INDEX](INDEX.md) for everything in one list, or look in the folder that matches what you're trying to do:
+The full list lives in [INDEX.md](INDEX.md). Or by category:
 
-| Folder | Use when you're… |
+| Folder | What's in it |
 |---|---|
-| [planning/](planning/) | designing what to build, critiquing a plan, running a multi-perspective review, or interviewing yourself for clearer requirements |
-| [dev/](dev/) | reviewing a PR, fixing issues, evaluating feedback, refreshing docs, shipping work |
-| [ux/](ux/) | evaluating user impact — JTBD framing, UI/UX critique, friction-to-fix walkthroughs |
-| [qa/](qa/) | building manual test plans, deep security analysis, performance profiling, finding similar bugs |
-| [marketing/](marketing/) | distribution strategy, GTM, campaign critique, marketing audits |
-| [learning/](learning/) | extracting generalizable lessons after a session |
-| [validation-criteria.md](validation-criteria.md) | (cross-cutting) defining how you'll know the work succeeded |
+| [planning/](planning/) | plan critiques, requirements interviews, multi-perspective reviews |
+| [dev/](dev/) | PR review, fix issues, doc cleanup, ship work |
+| [ux/](ux/) | jobs-to-be-done, UI/UX critique, friction-to-fix |
+| [qa/](qa/) | manual test plans, security analysis, performance, finding similar bugs |
+| [marketing/](marketing/) | distribution, GTM, campaign critique, audits |
+| [learning/](learning/) | lessons learned after a session |
+| [validation-criteria.md](validation-criteria.md) | how to know the work succeeded (used everywhere) |
 
-## Use them three ways
+## How to use them
 
-1. **Paste inline** — copy the prompt body, paste into any AI chat alongside your work. Done.
-2. **Fetch via raw URL** — point your own orchestrator at `https://raw.githubusercontent.com/ShivamGupta42/prompts/master/<folder>/<name>.md` and let your tooling pull it.
-3. **Fork and adapt** — clone the repo, edit prompts to match how you think, point your tools at your fork.
+The easiest way is to copy the body of any prompt and paste it into your chat alongside whatever you're working on. That's it.
 
-## Why these prompts exist
+If you have tooling that pulls prompts from URLs, the raw URL is `https://raw.githubusercontent.com/ShivamGupta42/prompts/master/<folder>/<name>.md`.
 
-Most AI critiques default to technical lenses — *will it work?* — and skip the harder questions: *will it matter to a user?* and *how will we know it's done?* The prompts here are organized so you can pull a single lens (JTBD, UX, validation) standalone, or compose them into bigger orchestrators (the `plan-critique-*` files in `planning/` do this — one trigger that classifies a plan and applies the right lenses).
+If you want to change them to match how you think, fork the repo and point your tools at your fork.
 
-A few design choices worth naming:
+## Why these exist
 
-- **Adversarial by default.** Most prompts ask the model to push back, find what's missing, rate confidence, and STOP rather than guess when context is thin. Sycophantic AI output is the failure mode these are designed against.
-- **Confidence anchors are explicit.** Every prompt that asks for confidence rates it on a fixed scale (1–3 guessing, 4–6 informed but unverified, 7–8 verified by reading code, 9–10 verified with test or external source). Same anchor everywhere — no ambiguity.
-- **Prioritize as P0/P1/P2.** Findings, issues, validation criteria — all triaged into the same three buckets. Easy to scan, easy to act on.
-- **Skip with a reason; never fabricate.** When a section doesn't apply, the prompts say "skip with a one-line reason" — not "fill it in to look thorough." This catches a lot of low-quality AI output that pads to fill structure.
+Most AI critiques default to "will it work?" and skip the harder questions: will it matter to a user, and how will we know it's done? So I split those concerns into separate prompts. You can pull one (JTBD, UX, validation) on its own, or compose them. The `plan-critique-*` files in `planning/` show this — one trigger classifies the plan and pulls in the right pieces.
 
-If you find a prompt that doesn't work the way you think, [contributions are welcome](CONTRIBUTING.md).
+The prompts share a few traits:
 
-## Provenance and trust
+**Adversarial by default.** They ask the model to push back, rate confidence, and STOP rather than guess when context is thin. Sycophantic output is what I'm trying to avoid.
 
-These prompts are synced from a personal espanso text-expansion config. The espanso config is the source of truth; this repo is the published mirror. A small sync script extracts each trigger and writes it here.
+**Explicit confidence scale.** Whenever a prompt asks for confidence, it's on a fixed scale (1–3 guessing, 4–6 informed but unverified, 7–8 verified by reading code, 9–10 verified with test or external source). Same anchor everywhere.
 
-Every commit goes through a safety stack (pre-commit hook + GitHub Action + branch protection on master) that blocks personal info, credentials, and accidental leaks. See [CONTRIBUTING.md](CONTRIBUTING.md) for details. Your contributions will go through the same gates.
+**P0/P1/P2 triage.** Findings get sorted into one of three buckets. Easy to scan.
+
+**Skip with a reason; never fabricate.** When a section doesn't apply, the prompts say so instead of padding to look thorough. This catches a lot of slop.
+
+If a prompt doesn't work for you, [open an issue](CONTRIBUTING.md).
+
+## Where these come from
+
+These are synced from my espanso config (a text-expansion tool). I edit the espanso file, run a small script, and the script writes each trigger to a file here. The espanso config is the source; this repo is the published copy.
+
+Every commit goes through a safety check (pre-commit hook + GitHub Action + branch protection on master) that blocks personal info and credentials from leaking. See [CONTRIBUTING.md](CONTRIBUTING.md) for the full setup.
 
 ## License
 
-MIT — see [LICENSE](LICENSE). Use them, fork them, adapt them, ship them.
+MIT. Use them however you want.
