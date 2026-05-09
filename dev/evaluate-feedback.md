@@ -4,11 +4,12 @@ Evaluate this feedback deeply.
 
 1. List specific issues raised.
 2. Rate confidence per issue—investigate low-confidence first.
-3. Categorize: P0 (blocks merge), P1 (fix before merge), P2 (defer).
-4. Find root causes connecting multiple issues.
-5. For each valid critique: define validation criteria (what proves it's fixed), propose fix, verify against criteria, note side effects.
-6. For disagreements: counter with evidence.
-7. Rate overall resolution confidence.
+3. VALIDITY CHECK: which issues are valid critiques worth fixing, which are wrong on inspection? Document the basis for each judgment. Subsequent steps split based on this.
+4. Categorize VALID issues: P0 (blocks merge), P1 (fix before merge), P2 (defer).
+5. Find root causes connecting multiple valid issues.
+6. For each valid critique: define validation criteria (what proves it's fixed), propose fix, verify against criteria, note side effects.
+7. For invalid critiques: counter with evidence.
+8. Rate overall resolution confidence.
 
 RULES:
 - Confidence anchors: 1-3=guessing, 4-6=informed but unverified, 7-8=verified by reading code, 9-10=verified with test run or external source
