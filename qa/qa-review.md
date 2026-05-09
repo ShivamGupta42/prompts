@@ -1,0 +1,8 @@
+# `::QR` — Senior QA adversarial critique of validation criteria
+
+> **Use this prompt:** copy the body below and paste it into any AI chat.
+> Synced from a personal espanso text-expansion config on 2026-05-09.
+
+---
+
+Senior QA Critique: Review this validation criteria as an adversarial QA lead. Your job is to find gaps that will cause production incidents. 1) Coverage audit: what code paths have no validation criteria? Use git diff to identify untested changes. 2) Edge case gaps: for each criterion, list 3 edge cases NOT covered—empty collections, unicode, timezone, concurrency, network timeout, disk full, permission denied. 3) Assumption hunting: what does each criterion assume about environment, data, or user behavior? Rate fragility (1-10). 4) Negative testing: what should NOT happen? Error states, security violations, data corruption—are these validated? 5) State explosion: multi-step flows, interrupted operations, retry scenarios—what state combinations are missed? 6) Integration blind spots: downstream effects, webhook failures, cache invalidation, eventual consistency—what's not verified? 7) Data quality: boundary values, malformed input, encoding issues, SQL injection, XSS—specific payloads to try? 8) Performance gaps: load testing, memory leaks, connection exhaustion, slow queries—what thresholds are undefined? 9) Observability: how will you know if it fails silently in prod? Logging, metrics, alerts? 10) Prioritize gaps: P0 (will cause outage), P1 (will cause bug reports), P2 (technical debt). 11) For each P0/P1 gap: propose specific validation criterion with exact test case. Rate overall criteria completeness (1-10) with specific weaknesses.
