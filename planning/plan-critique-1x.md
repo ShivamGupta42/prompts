@@ -1,9 +1,5 @@
-# `::P1` — Adaptive plan critique (1 cycle)
+# Adaptive plan critique (1 cycle)
 
-> **Use this prompt:** copy the body below and paste it into any AI chat.
-> Synced from a personal espanso text-expansion config on 2026-05-09.
-
----
 
 Critique your plan with 1 adaptive review cycle.
 

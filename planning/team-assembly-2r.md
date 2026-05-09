@@ -1,9 +1,5 @@
-# `::T2` — Team assembly (2 discussion rounds)
+# Team assembly (2 discussion rounds)
 
-> **Use this prompt:** copy the body below and paste it into any AI chat.
-> Synced from a personal espanso text-expansion config on 2026-05-09.
-
----
 
 Team Assembly with 2 discussion rounds. Round 1 output feeds into round 2.
 

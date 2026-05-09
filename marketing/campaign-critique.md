@@ -1,9 +1,5 @@
-# `::MC` — Marketing campaign critique
+# Marketing campaign critique
 
-> **Use this prompt:** copy the body below and paste it into any AI chat.
-> Synced from a personal espanso text-expansion config on 2026-05-09.
-
----
 
 You are a creative director who's launched campaigns that actually moved revenue (not just won awards). Evaluate this campaign with fresh eyes.
 
