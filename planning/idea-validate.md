@@ -23,15 +23,23 @@ Lens preconditions:
 Output:
 | Lens | APPLY/SKIP | Reason |
 
-STAGE 2 — APPLY LENSES (parallel where supported)
+STAGE 2 — APPLY LENSES (with dependency-aware ordering, NOT free-for-all parallel)
 
-Brief inline specs for each APPLY lens:
+The lenses have real dependencies. Each subsequent lens often uses the output of an earlier one. Run them in three substages:
 
-JTBD: State the job — "When [situation], a person wants to [motivation], so they can [outcome]." Rate four forces 1-10 (push/pull/anxiety/habit). Walk the journey, mark friction. Name the single highest-impact improvement with confidence. Full spec: https://raw.githubusercontent.com/ShivamGupta42/prompts/master/ux/jtbd.md
+STAGE 2a — REQUIREMENTS INTERVIEW (only if scope ambiguous; STOP and ask before continuing)
+If the idea has multiple plausible interpretations, clarify the scope FIRST so other lenses operate on the right target. Ask one clarifying question at a time. For each: present concrete options with a recommended pick. Cover both functional (behaviors, edge cases, validation rules, permissions) and non-functional (performance, scale, security, accessibility, observability). STOP and wait for answers before proceeding to Stage 2b.
+If scope is concrete enough to skip this lens, say so with a one-line reason and proceed.
+Full spec: https://raw.githubusercontent.com/ShivamGupta42/prompts/master/planning/requirements-interview.md
 
-REQUIREMENTS INTERVIEW: Ask one clarifying question at a time. For each: present concrete options with a recommended pick. Cover both functional (behaviors, edge cases, validation rules, permissions) and non-functional (performance, scale, security, accessibility, observability). STOP when you have enough to write unambiguous acceptance criteria. Full spec: https://raw.githubusercontent.com/ShivamGupta42/prompts/master/planning/requirements-interview.md
+STAGE 2b — JTBD (always; defines the job that subsequent lenses reason about)
+State the job — "When [situation], a person wants to [motivation], so they can [outcome]." Rate four forces 1-10 (push/pull/anxiety/habit). Walk the journey, mark friction. Name the single highest-impact improvement with confidence.
+The output of this stage (especially the job statement) is INPUT to Stage 2c's competitor scan.
+Full spec: https://raw.githubusercontent.com/ShivamGupta42/prompts/master/ux/jtbd.md
 
-COMPETITOR SCAN: List 3-7 alternatives the user might hire instead — direct competitors, indirect substitutes (spreadsheet, Slack channel, notebook), doing nothing (the most-hired competitor in most categories), hiring a person. For each: what trade-off does the user accept by choosing it? What's the gap THIS idea fills?
+STAGE 2c — COMPETITOR SCAN + RISK SURFACE + RESOURCE FIT (parallel; all three independent of each other but all depend on Stage 2b)
+
+COMPETITOR SCAN (uses JTBD's job statement to know what alternatives to compare): List 3-7 alternatives the user might hire INSTEAD to do the same job — direct competitors, indirect substitutes (spreadsheet, Slack channel, notebook), doing nothing (the most-hired competitor in most categories), hiring a person. For each: what trade-off does the user accept by choosing it? What's the gap THIS idea fills?
 
 RISK SURFACE: For each risk family, name 1-3 concrete risks if they apply. Skip families that don't apply with one-line reason.
 - Legal: regulatory exposure, IP, contracts, ToS violations
@@ -47,7 +55,7 @@ RESOURCE FIT: Estimate cost in three units:
 Then estimate value: who gets what; how much; how confident (1-10)?
 Cost/value ratio — does it pencil?
 
-For deeper standalone passes on any lens, fall back to: ::J (JTBD) or fetch full specs from the URLs above.
+For deeper standalone passes on any lens, fall back to: ::J (JTBD), ::PR (requirements interview), or fetch full specs from the URLs above.
 
 STAGE 3 — DEDUPE AND SYNTHESIZE
 Walk all lens outputs. Merge overlapping concerns:
