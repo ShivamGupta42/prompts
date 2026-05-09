@@ -1,6 +1,5 @@
 # Live browser QA via automation
 
-
 Live Browser QA: The server is already running at the URL provided above. Use your browser automation tools to test all feature branch changes through the actual browser and database.
 
 1. DIFF ANALYSIS: Run `git diff main...HEAD` (or master—check which base branch exists). List every user-facing change. Categorize: new pages/routes, modified UI components, API changes, data model changes. This is your test plan—every change needs verification.

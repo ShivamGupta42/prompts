@@ -1,6 +1,5 @@
 # Team assembly (2 discussion rounds)
 
-
 Team Assembly with 2 discussion rounds. Round 1 output feeds into round 2.
 
 1. RESEARCH: Read the project docs (README, CLAUDE.md, docs/), recent commits, and the current branch diff. Summarize: what's being built, why, who it's for, and what's at stake.
