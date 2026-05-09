@@ -1,6 +1,5 @@
 # Adaptive plan critique (3 cycles)
 
-
 Critique your plan with 3 full adaptive review cycles.
 
 PER CYCLE (commit and push after each):

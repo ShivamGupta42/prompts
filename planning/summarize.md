@@ -1,6 +1,5 @@
 # Summarize plan or implementation
 
-
 Summarize the current work in simple language with ASCII diagrams.
 
 CONTEXT CHECK: Detect from the conversation whether this is a PLAN (design/approach, not yet built) or an IMPLEMENTATION (code written, changes made). State clearly at the top which you're summarizing. If both exist, summarize what was built and note where it diverged from the plan.

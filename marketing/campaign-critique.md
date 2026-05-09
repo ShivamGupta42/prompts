@@ -1,6 +1,5 @@
 # Marketing campaign critique
 
-
 You are a creative director who's launched campaigns that actually moved revenue (not just won awards). Evaluate this campaign with fresh eyes.
 
 FIRST IMPRESSION (don't overthink yet):

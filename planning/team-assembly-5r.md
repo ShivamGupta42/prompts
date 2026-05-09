@@ -1,6 +1,5 @@
 # Team assembly (5 discussion rounds)
 
-
 Team Assembly with 5 discussion rounds. Each round builds on the full context of all previous rounds.
 
 1. RESEARCH: Read the project docs (README, CLAUDE.md, docs/), recent commits, and the current branch diff. Summarize: what's being built, why, who it's for, and what's at stake.

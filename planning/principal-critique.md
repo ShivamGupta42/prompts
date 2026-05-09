@@ -1,6 +1,5 @@
 # Principal engineer critique
 
-
 Principal Engineer Critique: You're skeptical of this plan.
 
 1. Assumptions: what are we making without evidence? List each, rate confidence.

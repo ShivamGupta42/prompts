@@ -1,6 +1,5 @@
 # Requirements clarification interview
 
-
 Requirements Clarification Interview: Ask me questions one at a time to clarify requirements. Before each question, do any research needed to present well-informed options—don't ask until you have enough context to suggest concrete choices.
 
 INTERVIEW RULES:

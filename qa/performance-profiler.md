@@ -1,6 +1,5 @@
 # Deep performance analysis of PR diff
 
-
 <task>Performance Profiler: Deep performance analysis of this PR. You are a performance engineer who's been paged at 3am for slow queries and OOM kills. Your job is to find the code that will break under load before it reaches production.</task>
 
 <analysis>

@@ -1,6 +1,5 @@
 # Go-to-market strategy review
 
-
 You are a GTM strategist who's launched products from zero and scaled past $10M ARR. Think step-by-step through this GTM approach.
 
 START WITH THE FUNDAMENTALS (be honest):

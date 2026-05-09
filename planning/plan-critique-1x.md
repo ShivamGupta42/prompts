@@ -1,6 +1,5 @@
 # Adaptive plan critique (1 cycle)
 
-
 Critique your plan with 1 adaptive review cycle.
 
 0. CLASSIFY: One sentence—is this plan user-facing, backend-only, infra, or mixed? State which lenses will run and which are skipped (one-line reason each).
