@@ -1,8 +1,4 @@
-# `::X` — UX friction to design fix
+# UX friction to design fix
 
-> **Use this prompt:** copy the body below and paste it into any AI chat.
-> Synced from a personal espanso text-expansion config on 2026-05-09.
-
----
 
 UX Friction → Fix (assumes ::J context): 1) TOP FRICTION: From the JTBD analysis, what's the #1 friction point blocking the job? Where do users pause, retry, or abandon? 2) ROOT CAUSE: Why does this friction exist? UI clarity, missing feedback, cognitive load, poor defaults, confusing copy? 3) DESIGN FIX: Propose a specific fix—what changes in layout, copy, interaction, or flow? Be concrete: 'Change button text from X to Y' not 'improve clarity'. 4) HYPOTHESIS: State as: 'If we [fix], users will [behavior change], measured by [metric].' 5) SIDE EFFECTS: What else changes? Other screens, edge cases, empty states, error handling? 6) SMALLEST VERSION: What's the minimum viable fix you could ship today? 7) CONFIDENCE: Rate (1-10) this fix moves the needle (1-3=guessing, 4-6=informed but unverified, 7-8=verified via user evidence, 9-10=verified with data/testing). What would raise your confidence?

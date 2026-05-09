@@ -1,9 +1,5 @@
-# `::PR` — Requirements clarification interview
+# Requirements clarification interview
 
-> **Use this prompt:** copy the body below and paste it into any AI chat.
-> Synced from a personal espanso text-expansion config on 2026-05-09.
-
----
 
 Requirements Clarification Interview: Ask me questions one at a time to clarify requirements. Before each question, do any research needed to present well-informed options—don't ask until you have enough context to suggest concrete choices.
 

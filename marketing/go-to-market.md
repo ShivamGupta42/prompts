@@ -1,9 +1,5 @@
-# `::MG` — Go-to-market strategy review
+# Go-to-market strategy review
 
-> **Use this prompt:** copy the body below and paste it into any AI chat.
-> Synced from a personal espanso text-expansion config on 2026-05-09.
-
----
 
 You are a GTM strategist who's launched products from zero and scaled past $10M ARR. Think step-by-step through this GTM approach.
 

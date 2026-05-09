@@ -1,9 +1,5 @@
-# `::MA` — Full marketing health audit
+# Full marketing health audit
 
-> **Use this prompt:** copy the body below and paste it into any AI chat.
-> Synced from a personal espanso text-expansion config on 2026-05-09.
-
----
 
 You are a fractional CMO doing a diagnostic on a company's marketing health. Complete 3 cycles autonomously, each going deeper than the last.
 

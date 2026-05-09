@@ -1,9 +1,5 @@
-# `::P3` — Adaptive plan critique (3 cycles)
+# Adaptive plan critique (3 cycles)
 
-> **Use this prompt:** copy the body below and paste it into any AI chat.
-> Synced from a personal espanso text-expansion config on 2026-05-09.
-
----
 
 Critique your plan with 3 full adaptive review cycles.
 

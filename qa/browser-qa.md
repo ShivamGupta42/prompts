@@ -1,9 +1,5 @@
-# `::QB` — Live browser QA via automation
+# Live browser QA via automation
 
-> **Use this prompt:** copy the body below and paste it into any AI chat.
-> Synced from a personal espanso text-expansion config on 2026-05-09.
-
----
 
 Live Browser QA: The server is already running at the URL provided above. Use your browser automation tools to test all feature branch changes through the actual browser and database.
 

@@ -1,9 +1,5 @@
-# `::QS` — Deep security analysis of PR diff
+# Deep security analysis of PR diff
 
-> **Use this prompt:** copy the body below and paste it into any AI chat.
-> Synced from a personal espanso text-expansion config on 2026-05-09.
-
----
 
 <task>Security Gate: Deep security analysis of this PR. You are a paranoid application security engineer. Your job is to find exploitable vulnerabilities in the actual code changes, not recite OWASP theory.</task>
 

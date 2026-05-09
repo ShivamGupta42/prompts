@@ -1,8 +1,4 @@
-# `::L` — Extract generalizable lessons from a session
+# Extract generalizable lessons from a session
 
-> **Use this prompt:** copy the body below and paste it into any AI chat.
-> Synced from a personal espanso text-expansion config on 2026-05-09.
-
----
 
 Lessons Learned: Reflect on this session—what patterns, anti-patterns, or debugging insights emerged? 1) List 3-5 generalizable lessons (not project-specific). 2) Categorize by topic (e.g. coding standards, testing, git workflow, core principles, framework-specific). 3) For each lesson: state the pattern, why it matters, and a code example if applicable. 4) Map to your project's knowledge-base files (CLAUDE.md, AGENTS.md, docs/, context/, README, or wherever your team documents conventions). 5) Propose specific additions in the format of those files. 6) Rate confidence each lesson is broadly applicable vs one-off (1-3=guessing, 4-6=informed but unverified, 7-8=seen in multiple sessions/projects, 9-10=verified pattern with strong evidence). Only include ≥7/10 lessons. Be VERY brief in suggestions. Check for duplicates—do NOT repeat existing lessons. If similar lesson exists, propose enhancement instead of new entry.
