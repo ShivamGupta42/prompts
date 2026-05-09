@@ -1,6 +1,6 @@
 # Prompts index
 
-Last synced 2026-05-09. 35 prompts.
+Last synced 2026-05-09. 36 prompts.
 
 ## planning
 
@@ -53,6 +53,7 @@ Last synced 2026-05-09. 35 prompts.
 ## learning
 
 - [`lessons-learned`](learning/lessons-learned.md) — Extract generalizable lessons from a session
+- [`post-mortem`](learning/post-mortem.md) — Post-mortem template for incidents
 
 ## (root)
 
