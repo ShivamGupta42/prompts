@@ -24,7 +24,7 @@ Output:
 | quality-hunt | … | … |
 
 STAGE 2 — APPLY LENSES (parallel if you have Task() in Claude Code; else sequential)
-For each APPLY lens, run its standard analysis on the diff. Required output per lens: P0/P1/P2 findings with confidence (1-10) and specific fixes. Standalone triggers ::QS / ::QP / ::UX / ::QM / ::QH have the full lens spec — fall back to those for max rigor. The pr-review lens (project-pattern pass: lessons-learned, file categories, coverage gaps) lives only here; no standalone.
+For each APPLY lens, run its standard analysis on the diff. Required output per lens: P0/P1/P2 findings with confidence (1-10) and specific fixes. Standalone deep-dive lenses — ::QS (security review) / ::QP (performance profile) / ::UX (UX critique) / ::QM (migration safety) / ::QH (quality hunt) — have the full lens spec; fall back to those for max rigor. (If you only received this prompt with no access to those trigger definitions, run the named lens from first principles — the parenthetical names tell you what each one does.) The pr-review lens (project-pattern pass: lessons-learned, file categories, coverage gaps) lives only here; no standalone.
 
 Distinguishing rules the standalones may not emphasize:
 - Security: try concrete payloads, not abstract category checklists
@@ -65,5 +65,5 @@ Output in order:
 - Conflicting fixes → surface explicitly; don't silently pick
 - Top 10-15 deduped findings max
 - If context missing (no diff, unclear scope, mid-refactor), STOP and ask one clarifying question
-- For deeper single-lens passes: ::QS / ::QP / ::UX / ::QM / ::QH
+- For deeper single-lens passes: ::QS (security review) / ::QP (performance profile) / ::UX (UX critique) / ::QM (migration safety) / ::QH (quality hunt) — names tell you the lens if the trigger isn't available
 </rules>

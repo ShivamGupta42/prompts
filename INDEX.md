@@ -1,6 +1,6 @@
 # Prompts index
 
-Last synced 2026-05-10. 37 prompts.
+Last synced 2026-05-17. 37 prompts.
 
 ## planning
 
@@ -23,7 +23,7 @@ Last synced 2026-05-10. 37 prompts.
 - [`evaluate-feedback`](dev/evaluate-feedback.md) — Evaluate feedback deeply
 - [`fix-issues`](dev/fix-issues.md) — Fix identified issues
 - [`pr-review`](dev/pr-review.md) — Review everything (adaptive multi-lens orchestrator)
-- [`ship-and-cleanup`](dev/ship-and-cleanup.md) — Ship cycle orchestrator (pre-flight + merge/cleanup + docs + lessons)
+- [`ship-and-cleanup`](dev/ship-and-cleanup.md) — Ship cleanup (prepare branch, squash-merge, clean worktree)
 
 ## ux
 
