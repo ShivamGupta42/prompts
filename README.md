@@ -1,6 +1,6 @@
-# prompts
+# agent-checkpoints
 
-Prompts I use when building software with coding agents (Claude Code, Codex, Cursor, Gemini, Aider). Each one produces a structured review with confidence ratings and P0/P1/P2 findings.
+Reusable review checkpoints for AI coding agents (Claude Code, Codex, Cursor, Gemini, Aider). Each checkpoint produces a structured review with confidence ratings and P0/P1/P2 findings.
 
 ### Starting an idea
 
@@ -45,7 +45,7 @@ Copy any body into your AI chat. Nothing to install. Full file-level list in [IN
 ## Folder layout
 
 ```
-prompts/
+agent-checkpoints/
 ├── planning/                  plan critiques, requirements, team reviews
 ├── dev/                       PR review, fix issues, doc cleanup, ship
 ├── ux/                        JTBD, UI/UX critique, friction-to-fix
@@ -59,7 +59,7 @@ prompts/
 
 Copy the body of any prompt and paste it into your chat. That's the simplest path.
 
-If you have tooling that pulls prompts from URLs, the raw URL is `https://raw.githubusercontent.com/ShivamGupta42/prompts/master/<folder>/<name>.md`.
+If you have tooling that pulls prompts from URLs, the raw URL is `https://raw.githubusercontent.com/ShivamGupta42/agent-checkpoints/master/<folder>/<name>.md`.
 
 If you want to change them to match how you think, fork the repo and point your tools at your fork.
 
